@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div>
+    <div class="form-group">
+        <div>
+            用户名：<input type="text" id="userName" class="form-control" />
+        </div>
+        <div>
+            消息：<input type="text" id="content" class="form-control" />
+        </div>
+        <div>
+            <input type="button" id="btnSend" class="form-control bg-success" value="发送"/>
+        </div>
+    </div>
+    <ul class="list-group" id="msgList">
+    </ul>
+</div>
+@section Scripts{ 
+<script type="text/javascript" src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script type="text/javascript" src="~/js/wechat.js"></script>
+}
