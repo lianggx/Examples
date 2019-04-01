@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div>
+    <div class="form-group">
+        <h2>群聊操作</h2>
+        房间名称：<input type="text" id="txtRoom" value="官方房间" />
+        <input type="button" id="btnJoin" value="加入房间" />
+        <input type="button" id="btnLeave" value="离开房间" />
+        消息：<input type="text" id="groupContent" class="form-control" />
+        <input type="button" id="btnSendToGroup" class="form-control bg-success" value="发送" />
+    </div>
+
+    <div class="form-group">
+        <h2>单聊操作</h2>
+        用户名：<input type="text" id="txtUserName" value="" placeholder="请输入聊天对象的昵称" />
+        消息：<input type="text" id="txtUserContent" class="form-control" />
+        <input type="button" id="btnSendToUser" class="form-control bg-success" value="发送" />
+    </div>
+
+    <div class="form-group">
+        <h2>全站消息推送</h2>
+        <div>
+            用户名：@Context.User.Identity.Name
+            <input type="hidden" id="userName" class="form-control" value="@Context.User.Identity.Name" />
+        </div>
+        <div>
+            消息：<input type="text" id="content" class="form-control" />
+        </div>
+        <div>
+            <input type="button" id="btnSend" class="form-control bg-success" value="发送" />
+        </div>
+    </div>
+</div>
+
+<ul class="list-group" id="msgList"></ul>
+
+@section Scripts{
+    <script type="text/javascript" src="~/lib/signalr/dist/browser/signalr.js"></script>
+    <script type="text/javascript" src="~/js/wechat.js"></script>
+}

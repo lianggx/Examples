@@ -1,0 +1,27 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Login</h1>
+    <p>
+        @Html.ValidationSummary()
+    </p>
+</div>
+<div>
+    <div class="form-group">
+        <form action="/User/Login" method="post">
+            <div>
+                用户名：<input type="text" name="UserName" class="form-control" />
+            </div>
+            <div>
+                密码：<input type="password" name="Passowrd" class="form-control" />
+            </div>
+            <div>
+                <input type="submit" class="form-control bg-success" value="登录" />
+            </div>
+        </form>
+    </div>
+    <ul class="list-group" id="msgList"></ul>
+</div>
