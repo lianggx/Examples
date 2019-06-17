@@ -12,13 +12,17 @@ namespace Ron.Consul.Controllers
         [HttpGet("index")]
         public ActionResult<string> Index()
         {
-            return "Index";
+            return "Hello wrold";
         }
 
         [HttpGet("add/{x:int}/{y:int}")]
         public ActionResult<int> Add(int x, int y)
         {
-            return x + y;
+            var result = x + y;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("x+y={0} {1}", result, DateTime.Now.ToString("HH:mm:ss"));
+            Console.ForegroundColor = ConsoleColor.Gray;
+            return result;
         }
     }
 }

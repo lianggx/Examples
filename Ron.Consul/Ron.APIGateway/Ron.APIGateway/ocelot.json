@@ -1,0 +1,24 @@
+{
+  "ReRoutes": [
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "node-1",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "UpstreamPathTemplate": "/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "ReRoutesCaseSensitive": false
+    }
+  ],
+  "GlobalConfiguration": {
+    "RequestKey": "OcRequestId",
+    "ServiceDiscoveryProvider": {
+      "Host": "172.16.1.218",
+      "Port": 8500,
+      "ConfigurationKey": "node-1"
+    }
+  }
+}

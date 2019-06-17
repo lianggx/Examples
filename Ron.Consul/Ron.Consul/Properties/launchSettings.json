@@ -2,7 +2,7 @@
   "profiles": {
     "Ron.Consul": {
       "commandName": "Project",
-      "commandLineArgs": "--schema http --ip 172.16.10.227 --port 51800"
+      "commandLineArgs": "--scheme http --ip 172.16.10.227 --port 12008"
     }
   }
 }

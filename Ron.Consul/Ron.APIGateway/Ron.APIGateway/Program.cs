@@ -8,24 +8,23 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Ron.Consul
+namespace Ron.APIGateway
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args)
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
         {
             var config = new ConfigurationBuilder().AddCommandLine(args).Build();
             var url = $"{config["scheme"]}://{config["ip"]}:{config["port"]}";
             return WebHost.CreateDefaultBuilder(args)
-                  .UseStartup<Startup>()
-                  .UseConfiguration(config)
-                  .UseUrls(url)
-                  .Build();
+                          .UseConfiguration(config)
+                          .UseUrls(url)
+                          .UseStartup<Startup>();
         }
     }
 }

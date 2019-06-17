@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Ron.APIGateway": {
+      "commandName": "Project",
+      "commandLineArgs": "--scheme http --ip 172.16.10.227 --port 12200"
+    }
+  }
+}

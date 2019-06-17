@@ -48,7 +48,7 @@ namespace Ron.Consul.Extensions
         {
             var clientConfig = cc.Value;
             //获取服务运行侦听的地址和端口作为健康检查的地址
-            var clientIP = new Uri($"{configuration["schema"]}://{configuration["ip"]}:{configuration["port"]}");
+            var clientIP = new Uri($"{configuration["scheme"]}://{configuration["ip"]}:{configuration["port"]}");
             var serviceId = $"{clientConfig.ClientName}-{clientIP.Host}-{clientIP.Port}";
             var ipv4 = clientIP.Host;
 
@@ -95,6 +95,7 @@ namespace Ron.Consul.Extensions
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Health check {0}", DateTime.Now);
+                    Console.ForegroundColor = ConsoleColor.Gray;
                     await context.Response.WriteAsync("ok");
                 });
             });
